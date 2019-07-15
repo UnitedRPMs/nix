@@ -4,8 +4,8 @@
 %global nixbld_group "nixbld"
 
 Name: nix
-Version: 2.1.3
-Release: 3%{?dist}
+Version: 2.2.2
+Release: 1%{?dist}
 
 Summary: A purely functional package manager
 
@@ -29,6 +29,7 @@ BuildRequires: gc-devel
 BuildRequires: boost-devel
 BuildRequires: libsodium-devel
 BuildRequires: flex
+BuildRequires: editline-devel
 Requires: coreutils
 Requires: shadow-utils
 
@@ -51,7 +52,9 @@ developing applications that use nix.
 
 %build
 
-%configure --enable-gc --localstatedir=/nix/var
+%configure --prefix=/usr \
+              --sysconfdir=/etc \
+              --enable-gc--localstatedir=/nix/var
 %make_build
 
 %install
@@ -100,11 +103,9 @@ systemctl disable nix-daemon.socket nix-daemon.service
 %files
 %license COPYING
 %{_bindir}/nix
-%{_bindir}/nix*
 #{_sysconfdir}/init/nix-daemon.conf
 %config(noreplace) %{_sysconfdir}/profile.d/nix.sh
 %config(noreplace) %{_sysconfdir}/profile.d/nix-daemon.sh
-%{_libexecdir}/nix/build-remote
 %{_docdir}/nix/manual/
 %{_mandir}/man*/
 %{_datadir}/nix/
@@ -114,6 +115,19 @@ systemctl disable nix-daemon.socket nix-daemon.service
 %{_libdir}/libnixmain.so
 %{_libdir}/libnixstore.so
 %{_libdir}/libnixutil.so
+%{_bindir}/nix-build
+%{_bindir}/nix-channel
+%{_bindir}/nix-collect-garbage
+%{_bindir}/nix-copy-closure
+%{_bindir}/nix-daemon
+%{_bindir}/nix-env
+%{_bindir}/nix-hash
+%{_bindir}/nix-instantiate
+%{_bindir}/nix-prefetch-url
+%{_bindir}/nix-shell
+%{_bindir}/nix-store
+%{_libexecdir}/nix/build-remote
+
 
 %files devel
 %{_includedir}/nix/
@@ -121,6 +135,9 @@ systemctl disable nix-daemon.socket nix-daemon.service
 
 
 %changelog
+
+* Sun Jul 14 2018 David Va <davidva AT tuta DOT io> 2.2.2-1 
+- Updated to 2.2.2
 
 * Fri Oct 26 2018 David Va <davidva AT tuta DOT io> 2.1.3-3 
 - Initial build
