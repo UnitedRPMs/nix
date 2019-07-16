@@ -55,7 +55,8 @@ developing applications that use nix.
 %configure --prefix=/usr \
               --sysconfdir=/etc \
               --enable-gc--localstatedir=/nix/var
-%make_build
+
+%make_build AM_DEFAULT_VERBOSITY=0
 
 %install
 %make_install
@@ -136,7 +137,7 @@ systemctl disable nix-daemon.socket nix-daemon.service
 
 %changelog
 
-* Sun Jul 14 2018 David Va <davidva AT tuta DOT io> 2.2.2-1 
+* Sun Jul 14 2019 David Va <davidva AT tuta DOT io> 2.2.2-1 
 - Updated to 2.2.2
 
 * Fri Oct 26 2018 David Va <davidva AT tuta DOT io> 2.1.3-3 
