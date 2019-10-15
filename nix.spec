@@ -4,7 +4,7 @@
 %global nixbld_group "nixbld"
 
 Name: nix
-Version: 2.3
+Version: 2.3.1
 Release: 1%{?dist}
 
 Summary: A purely functional package manager
@@ -136,6 +136,9 @@ systemctl disable nix-daemon.socket nix-daemon.service
 
 
 %changelog
+
+* Mon Oct 14 2019 David Va <davidva AT tuta DOT io> 2.3.1-1 
+- Updated to 2.3.1
 
 * Wed Sep 18 2019 David Va <davidva AT tuta DOT io> 2.3-1 
 - Updated to 2.3
