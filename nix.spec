@@ -4,7 +4,7 @@
 %global nixbld_group "nixbld"
 
 Name: nix
-Version: 2.3.1
+Version: 2.3.2
 Release: 1%{?dist}
 
 Summary: A purely functional package manager
@@ -29,7 +29,7 @@ BuildRequires: gc-devel
 BuildRequires: boost-devel
 BuildRequires: libsodium-devel
 BuildRequires: flex
-BuildRequires: editline-devel
+BuildRequires: editline-devel >= 1.17.0
 Requires: coreutils
 Requires: shadow-utils
 
@@ -136,6 +136,9 @@ systemctl disable nix-daemon.socket nix-daemon.service
 
 
 %changelog
+
+* Fri Jan 10 2020 David Va <davidva AT tuta DOT io> 2.3.2-1 
+- Updated to 2.3.2
 
 * Mon Oct 14 2019 David Va <davidva AT tuta DOT io> 2.3.1-1 
 - Updated to 2.3.1
