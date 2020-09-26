@@ -3,6 +3,9 @@
 %global nixbld_user "nix-builder-"
 %global nixbld_group "nixbld"
 
+#define _legacy_common_support 1
+#global _lto_cflags %{nil}
+
 Name: nix
 Version: 2.3.7
 Release: 1%{?dist}
@@ -13,6 +16,7 @@ License: LGPLv2+
 Group: Applications/System
 Url: https://nixos.org/nix
 Source: https://nixos.org/releases/nix/nix-%{version}/nix-%{version}.tar.xz
+Patch: nix-2.3.7-GC.patch
 
 BuildRequires: gcc-c++ 
 BuildRequires: autoconf 
@@ -48,7 +52,7 @@ The nix-devel package contains libraries and header files for
 developing applications that use nix.
 
 %prep
-%setup -n %{name}-%{version}
+%autosetup -n %{name}-%{version} -p1
 
 %build
 
