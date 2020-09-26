@@ -4,7 +4,7 @@
 %global nixbld_group "nixbld"
 
 Name: nix
-Version: 2.3.6
+Version: 2.3.7
 Release: 1%{?dist}
 
 Summary: A purely functional package manager
@@ -136,6 +136,9 @@ systemctl disable nix-daemon.socket nix-daemon.service
 
 
 %changelog
+
+* Thu Sep 24 2020 David Va <davidva AT tuta DOT io> 2.3.7-1 
+- Updated to 2.3.7
 
 * Mon Jun 08 2020 David Va <davidva AT tuta DOT io> 2.3.6-1 
 - Updated to 2.3.6
