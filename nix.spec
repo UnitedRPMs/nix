@@ -7,7 +7,7 @@
 #global _lto_cflags %{nil}
 
 Name: nix
-Version: 2.3.7
+Version: 2.3.10
 Release: 1%{?dist}
 
 Summary: A purely functional package manager
@@ -16,7 +16,6 @@ License: LGPLv2+
 Group: Applications/System
 Url: https://nixos.org/nix
 Source: https://nixos.org/releases/nix/nix-%{version}/nix-%{version}.tar.xz
-Patch: nix-2.3.7-GC.patch
 
 BuildRequires: gcc-c++ 
 BuildRequires: autoconf 
@@ -140,6 +139,9 @@ systemctl disable nix-daemon.socket nix-daemon.service
 
 
 %changelog
+
+* Mon Feb 15 2021 David Va <davidva AT tuta DOT io> 2.3.10-1 
+- Updated to 2.3.10
 
 * Thu Sep 24 2020 David Va <davidva AT tuta DOT io> 2.3.7-1 
 - Updated to 2.3.7
