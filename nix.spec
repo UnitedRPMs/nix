@@ -1,4 +1,5 @@
 %undefine _hardened_build
+%global __brp_check_rpaths %{nil}
 
 %global nixbld_user "nix-builder-"
 %global nixbld_group "nixbld"
@@ -7,7 +8,7 @@
 #global _lto_cflags %{nil}
 
 Name: nix
-Version: 2.3.11
+Version: 2.3.12
 Release: 1%{?dist}
 
 Summary: A purely functional package manager
@@ -139,6 +140,9 @@ systemctl disable nix-daemon.socket nix-daemon.service
 
 
 %changelog
+
+* Fri Jun 11 2021 David Va <davidva AT tuta DOT io> 2.3.12-1 
+- Updated to 2.3.12
 
 * Fri May 28 2021 David Va <davidva AT tuta DOT io> 2.3.11-1 
 - Updated to 2.3.11
