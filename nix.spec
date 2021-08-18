@@ -8,7 +8,7 @@
 #global _lto_cflags %{nil}
 
 Name: nix
-Version: 2.3.12
+Version: 2.3.15
 Release: 1%{?dist}
 
 Summary: A purely functional package manager
@@ -140,6 +140,9 @@ systemctl disable nix-daemon.socket nix-daemon.service
 
 
 %changelog
+
+* Mon Aug 16 2021 David Va <davidva AT tuta DOT io> 2.3.15-1 
+- Updated to 2.3.15
 
 * Fri Jun 11 2021 David Va <davidva AT tuta DOT io> 2.3.12-1 
 - Updated to 2.3.12
